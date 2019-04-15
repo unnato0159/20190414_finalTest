@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                float kee= Integer.parseInt(inputKee.getText().toString());
-               float kg = Integer.parseInt(inputKg.getText().toString());
+                double kee= Double.parseDouble(inputKee.getText().toString());
+               double kg = Double.parseDouble(inputKg.getText().toString());
 
 
-                float result = 0;
-                result =  kg + ( kee*kee);
+                double result = 0;
+                result =  kg / ( kee*kee);
                 String  keee = "";
 
                 if(result <18.5){
@@ -42,13 +42,14 @@ public class MainActivity extends AppCompatActivity {
                 }else if(result >25 && result <30 ){
                     keee ="비만";
 
-                }else{
+                }else if(result>30){
                     keee="고도비만";
 
                 }
 
                 Intent intent = new Intent(MainActivity.this,Main2Activity.class);
                 intent.putExtra("keee",keee);
+                startActivity(intent);
             }
         });
     }
